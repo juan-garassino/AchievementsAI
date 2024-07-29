@@ -1,0 +1,18 @@
+Biography
+I was born in Argentina, a country steeped in rich cultural heritage, into a family with predominantly Italian roots, especially on my mother's side. My father's maternal lineage adds a layer of historical significance, tracing back to the first settlements in the Rio de la Plata region, predating Argentina's independence. This diverse and historically rich background has always been a source of pride and inspiration.
+
+Growing up in Buenos Aires, I attended the same school for both primary and high school education. I lived in a low-density residential neighborhood, where playing in the streets and spending time with friends fostered a strong sense of community. My school years were filled with positive memories, and I was fortunate to find my studies relatively easy and enjoyable.
+
+From an early age, I was significantly influenced by both of my parents. My mother, an architect specializing in program management, instilled in me a creative approach to problem-solving and a keen sensitivity to design. My father, a data engineer responsible for database infrastructure, introduced me to the world of technology and data management. This unique combination of influences set the foundation for my diverse interests and career path.
+
+In high school, I developed a keen interest in the harder sciences, particularly physics and math, alongside chemistry and biology. I enjoyed almost all subjects, except for literature, but had a deep appreciation for social sciences like history and geography. Extracurricular activities such as guitar, English and Italian lessons, and sports, particularly martial arts, further enriched my high school experience. I also loved reading, playing video games, and spending time in the park.
+
+At age 16, I participated in career counseling, where experts recommended I choose between electronic engineering, biochemistry, or architecture. During this period, I took an IQ leveling test and answered all but one question correctly, consistently scoring between 140 and 145 in various IQ tests. These achievements validated my academic abilities and helped shape my career aspirations.
+
+Motivated by my interests and family influences, I pursued my undergraduate studies in architecture at the University of Buenos Aires. During my time at the university, I worked on significant projects that further solidified my passion for design and technology. My mother’s expertise in architecture and my father’s background in data engineering provided a unique perspective that enriched my educational journey.
+
+With the advent of the machine learning renaissance in the 2010s and leveraging the opportunities presented by the COVID-19 recession, I transitioned into deep learning engineering. This shift was also inspired by my brother, a computer scientist based in Buenos Aires, whose work further fueled my passion for technology and AI.
+
+As a Deep Learning Consultant, I have worked on numerous notable projects, leveraging my diverse expertise in architecture, deep learning, and MLOps engineering. My experience as a global instructor and consultant has allowed me to travel and work in different cultural environments, enhancing my professional growth and cultural perspective. Currently, I am focused on integrating deep learning with 3D generative architecture and smart cities urbanism, reflecting my passion for the intersection of these fields.
+
+Looking ahead, I aspire to settle back in Berlin and contribute to the field of AI and smart cities. My journey from architecture to deep learning engineering, influenced by my rich cultural heritage and diverse educational background, continues to drive my commitment to innovation and excellence in my professional endeavors.
