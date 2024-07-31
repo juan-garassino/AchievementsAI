@@ -100,27 +100,29 @@ st.sidebar.image(image, use_column_width=True)
 
 st.sidebar.markdown("### 1. Key Features")
 st.sidebar.markdown("""
-- **Chatbot**: Engage with a sophisticated chatbot that provides information about me.
-- **RAG Model**: Utilizing state-of-the-art Retrieval-Augmented Generation techniques for accurate responses.
-- **Containerization**: Seamless integration and deployment using containerization technologies (e.g., Docker). 
-- **Cloud Deployment**: Easily deploy the application to the cloud for enhanced accessibility and scalability.
+- **A. Chatbot**: Engage with a sophisticated chatbot that provides information about me.
+- **B. RAG Model**: Utilizing state-of-the-art Retrieval-Augmented Generation techniques for accurate responses.
+- **C. Containerization**: Seamless integration and deployment using containerization technologies (e.g., Docker).
+- **D. Cloud Deployment**: Easily deploy the application to the cloud for enhanced accessibility and scalability.
 """)
-
 
 st.sidebar.markdown("### 2. Biography")
 st.sidebar.markdown("""
-I'm a machine learning and deep learning professional with four years of experience in data science and MLOps engineering. My strong foundation in Data Science & Data Engineering has enabled me to develop expertise in building and deploying sophisticated AI models. I successfully transitioned from architecture to tech four years ago, which gives me a unique perspective and creative problem-solving approach in my ML projects. I specialize in computer vision, generative AI, and the development of automated ML pipelines, constantly pushing the boundaries of what's possible in AI.
+I'm a **machine learning** and **deep learning** professional with four years of experience in **data science** and **MLOps engineering**. My strong foundation in **Data Science** & **Data Engineering** has enabled me to develop expertise in building and deploying sophisticated **AI models**. I successfully transitioned from **architecture** to tech four years ago, which gives me a unique perspective and creative problem-solving approach in my ML projects. I specialize in **computer vision**, **generative AI**, and the development of **automated ML pipelines**, constantly pushing the boundaries of what's possible in AI.
 """)
 
 st.sidebar.markdown("### 3. Skills and Expertise")
 st.sidebar.markdown("""
-- **Machine Learning & Deep Learning**
-- **Computer Vision**
-- **Generative AI**
-- **Automated ML Pipelines**
-- **3D Generative Architecture**
-- **Smart Cities Urbanism**
+- **A. Machine Learning & Deep Learning**: Expertise in developing and deploying sophisticated models for various applications, including classification, regression, and generative tasks.
+- **B. Computer Vision**: Specializing in analyzing and interpreting visual data from the world, using techniques such as object detection, image segmentation, and feature extraction.
+- **C. Generative AI**: Creating innovative solutions using advanced models like GANs and diffusion models for generating new data and content.
+- **D. Automated ML Pipelines**: Designing and implementing efficient, scalable pipelines for training, evaluating, and deploying machine learning models.
+- **E. 3D Generative Architecture**: Applying deep learning techniques to generate and optimize architectural designs and spaces.
+- **F. Smart Cities Urbanism**: Leveraging AI to enhance urban planning and development for smarter, more efficient cities.
+- **G. Data Engineering**: Building and maintaining robust data pipelines and infrastructure for processing and analyzing large datasets.
+- **H. Cloud Services**: Utilizing cloud platforms (e.g., AWS, Azure, Google Cloud) for scalable deployment, management, and integration of AI and machine learning solutions.
 """)
+
 
 st.sidebar.markdown("### 4. Project Links and Descriptions")
 st.sidebar.markdown("""
@@ -137,9 +139,8 @@ st.sidebar.markdown("""
 """)
 
 
-st.sidebar.markdown("### 5. Testimonials")
-st.sidebar.markdown("""
-- "In a short time with our company, Mr. Garassino has shown remarkable enthusiasm, adaptability, and leadership. His expertise has taken him across the globe, teaching Data Science in cities like Berlin, Tokyo, Barcelona, and Amsterdam for our B2C Bootcamps. He’s also a respected colleague and lecturer for our B2B programs, making a significant impact in places like Malaysia, Switzerland, and Dubai."  
+st.sidebar.markdown("### 5. Testimonial")
+st.sidebar.markdown("""'In a short time with our company, Mr. Garassino has shown remarkable enthusiasm, adaptability, and leadership. His expertise has taken him across the globe, teaching Data Science in cities like Berlin, Tokyo, Barcelona, and Amsterdam for our B2C Bootcamps. He’s also a respected colleague and lecturer for our B2B programs, making a significant impact in places like Malaysia, Switzerland, and Dubai.'
   
   **Titiana Benassi**  
   People Manager @ Le Wagon
