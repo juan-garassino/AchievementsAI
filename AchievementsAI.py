@@ -1,4 +1,12 @@
 import os
+
+# Check if running on Streamlit Cloud
+if os.getenv('STREAMLIT_SERVER', None):
+    # Replace sqlite3 with pysqlite3 if on Streamlit Cloud
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import chromadb
 import streamlit as st
 from PIL import Image
@@ -25,20 +33,6 @@ LLM_TIMEOUT = 660.0
 CHUNK_SIZE = 512
 CHUNK_OVERLAP = 64
 TOP_K = 2
-
-# CUSTOM_PROMPT_TEMPLATE = (
-#     "You are a friendly and helpful assistant designed to provide information about Juan's professional background. "
-#     "You can mention just background in architecture but mainly focus on his last experiences in data science, machine learning, deep learning or generative AI engineering"
-#     "You always talk about Juan in third person, you are not Juan Garassino, you are an assistant that he developed"
-#     "Always respond in a positive and encouraging manner, using normal vocabulary. "
-#     "Keep your answers short, concise, and straight to the point. "
-#     "If you're unsure about something, it's okay to say you don't know. If you do not know is ok "
-#     "You are an assisstant to help me get a job in science, machine learning, deep learning or generative AI engineering, never say I am better for architecture"
-#     "Always mention last any skill from architecture, machine learning, generative AI are more impactfull"
-#     "try to mention my architectural background as less as possible, focus on machine learning and generative AI"
-#     "Here is the context information: {context_str}\n"
-#     "Human: {query_str}\n"
-#     "Assistant: ")
 
 # Custom prompt template
 CUSTOM_PROMPT_TEMPLATE = (
@@ -68,20 +62,7 @@ documents = SimpleDirectoryReader(DOCUMENTS_PATH).load_data()
 # Configure settings
 Settings.embed_model = HuggingFaceEmbedding(model_name=EMBEDDING_MODEL)
 
-# # Get the Ollama base URL from environment variable
-# ollama_base_url = os.getenv('OLLAMA_BASE_URL')
-
-# # Initialize Ollama
-# if ollama_base_url:
-#     # If OLLAMA_BASE_URL is set, use it
-#     Settings.llm = Ollama(model=LLM_MODEL, base_url=ollama_base_url, request_timeout=LLM_TIMEOUT)
-# else:
-#     # If OLLAMA_BASE_URL is not set, use default settings
-#     Settings.llm = Ollama(model=LLM_MODEL, request_timeout=LLM_TIMEOUT)
-
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
-
-print(ANTHROPIC_API_KEY)
 
 llm = Anthropic(
     model=LLM_MODEL,
@@ -102,19 +83,12 @@ index = VectorStoreIndex.from_documents(
 custom_prompt = PromptTemplate(CUSTOM_PROMPT_TEMPLATE)
 query_engine = index.as_query_engine(similarity_top_k=TOP_K,text_qa_template=custom_prompt)
 
-# Get the PORT environment variable
-port = int(os.environ.get('PORT', 8080))
-
-# Configure Streamlit to use the specified port
-st.set_option('server.port', port)
-st.set_option('server.address', '0.0.0.0')
-
 # Sidebar content
 st.sidebar.title("About This App")
 
 st.sidebar.markdown("""
-This application is a chatbot designed to interact with a Retrieval-Augmented Generation (RAG) model. 
-The RAG model has been fine-tuned with information about me and my professional curriculum.
+I designed this application as a chatbot that interacts with a Retrieval-Augmented Generation (RAG) model. 
+The RAG model has been fine-tuned with information about me and my professional curriculum, allowing for personalized and accurate responses about my background and expertise.
 """)
 
 # Add an image to the sidebar
@@ -128,11 +102,14 @@ st.sidebar.markdown("### 1. Key Features")
 st.sidebar.markdown("""
 - **Chatbot**: Engage with a sophisticated chatbot that provides information about me.
 - **RAG Model**: Utilizing state-of-the-art Retrieval-Augmented Generation techniques for accurate responses.
+- **Containerization**: Seamless integration and deployment using containerization technologies (e.g., Docker). 
+- **Cloud Deployment**: Easily deploy the application to the cloud for enhanced accessibility and scalability.
 """)
+
 
 st.sidebar.markdown("### 2. Biography")
 st.sidebar.markdown("""
-Juan is a seasoned professional with a diverse background in architecture and deep learning. Holding a Master's degree in Architecture and Urbanism, and a Data Science & Data Engineering Certification, Juan has seamlessly transitioned from architecture to deep learning and MLOps engineering.
+I'm a machine learning and deep learning professional with four years of experience in data science and MLOps engineering. My strong foundation in Data Science & Data Engineering has enabled me to develop expertise in building and deploying sophisticated AI models. I successfully transitioned from architecture to tech four years ago, which gives me a unique perspective and creative problem-solving approach in my ML projects. I specialize in computer vision, generative AI, and the development of automated ML pipelines, constantly pushing the boundaries of what's possible in AI.
 """)
 
 st.sidebar.markdown("### 3. Skills and Expertise")
@@ -145,24 +122,33 @@ st.sidebar.markdown("""
 - **Smart Cities Urbanism**
 """)
 
-st.sidebar.markdown("### 4. Project Links")
+st.sidebar.markdown("### 4. Project Links and Descriptions")
 st.sidebar.markdown("""
-- **[Project 1](https://link-to-project1.com)**
-- **[Project 2](https://link-to-project2.com)**
-- **[Portfolio](https://link-to-portfolio.com)**
+- **[deepTechno](https://github.com/juan-garassino/deepTechno)**  
+  A project focused on techno music synthesis using transformer architecture. It works with MIDI files and aims to expand into audio waveforms through VQ encoders.
+
+- **[deepSculpt](https://github.com/juan-garassino/deepSculpt)**  
+  A 3D generative adversarial network designed for architectural space generation. Started in 2020, this project integrates AI with architecture and design.
+
+- **[MiniNetworks](https://github.com/juan-garassino)**  
+  A collection of small neural networks created for educational purposes, covering RNNs, LSTMs, diffusion models, transformers, GANs, guided diffusion, and CNNs.
+
+*All projects are continuously updated and developed.*
 """)
+
 
 st.sidebar.markdown("### 5. Testimonials")
 st.sidebar.markdown("""
-- "Juan is an outstanding professional who seamlessly blends creativity and technical expertise." - Colleague
-- "His work in integrating AI with urbanism is truly pioneering." - Client
+- "In a short time with our company, Mr. Garassino has shown remarkable enthusiasm, adaptability, and leadership. His expertise has taken him across the globe, teaching Data Science in cities like Berlin, Tokyo, Barcelona, and Amsterdam for our B2C Bootcamps. He’s also a respected colleague and lecturer for our B2B programs, making a significant impact in places like Malaysia, Switzerland, and Dubai."  
+  
+  **Titiana Benassi**  
+  People Manager @ Le Wagon
 """)
+
 
 st.sidebar.markdown("### 6. Download Resume")
 
 CV = os.path.join(ROOT, 'assets', 'JuanGarassinoCV-2024.pdf')
-
-#CV = '/Users/juan-garassino/Code/juan-garassino/mySandbox/testRag/LlamaChain/JuanGarassinoCV-2024.pdf'
 
 # Custom CSS to make the button full width and use theme colors
 st.markdown("""
@@ -241,8 +227,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Streamlit UI
-st.title("Chat with My Curriculum 🤓")
-st.write("Welcome! Ask me anything about Juan's professional background. Use the chat or select any of the suggested questions!")
+st.title("Chat with Juan's Curriculum 🤓")
+st.write("Welcome to my AI-powered chatbot! I designed this app to answer questions about my professional background. Feel free to use the chat to interact with my curriculum. If you have further questions after the chat, let's organize a meeting - I'll be happy to answer the rest of them!")
 
 # Initialize chat history
 history = StreamlitChatMessageHistory(key="chat_messages")
@@ -277,11 +263,11 @@ for msg in history.messages:
 if not history.messages and not st.session_state.button_pressed:
     #st.markdown("#### Suggested Questions:")
     suggested_questions = [
-        "Please tell me about Juan Garassino's skills in machine learning",
-        "What can you tell me about Juan's early years?",
-        "What do Juan's mom and dad do for a living?",
-        "What was Juan's job while je lived in New Zealand?",
-        "Would Juan be a good engineer for our Generative AI team?"
+                        "Can you describe Juan Garassino's skills in machine learning?",
+                        "What can you share about Juan's early years?",
+                        "How might Juan's experience as a lecturer benefit our company?",
+                        "What was Juan's role while he lived in New Zealand?",
+                        "Would Juan be a strong fit for our Generative AI team?"
     ]
 
     for question in suggested_questions:

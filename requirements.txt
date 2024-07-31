@@ -8,6 +8,8 @@ llama-index-embeddings-huggingface
 llama-index-llms-anthropic # theres one for each LLM
 langchain-community
 
+pysqlite3-binary
+
 # supervisor
 # accelerate
 
