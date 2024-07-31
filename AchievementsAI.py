@@ -113,16 +113,15 @@ I'm a **machine learning** and **deep learning** professional with four years of
 
 st.sidebar.markdown("### 3. Skills and Expertise")
 st.sidebar.markdown("""
-- **A. Machine Learning & Deep Learning**: Expertise in developing and deploying sophisticated models for various applications, including classification, regression, and generative tasks.
-- **B. Computer Vision**: Specializing in analyzing and interpreting visual data from the world, using techniques such as object detection, image segmentation, and feature extraction.
-- **C. Generative AI**: Creating innovative solutions using advanced models like GANs and diffusion models for generating new data and content.
-- **D. Automated ML Pipelines**: Designing and implementing efficient, scalable pipelines for training, evaluating, and deploying machine learning models.
-- **E. 3D Generative Architecture**: Applying deep learning techniques to generate and optimize architectural designs and spaces.
-- **F. Smart Cities Urbanism**: Leveraging AI to enhance urban planning and development for smarter, more efficient cities.
-- **G. Data Engineering**: Building and maintaining robust data pipelines and infrastructure for processing and analyzing large datasets.
-- **H. Cloud Services**: Utilizing cloud platforms (e.g., AWS, Azure, Google Cloud) for scalable deployment, management, and integration of AI and machine learning solutions.
+- **A. Machine Learning & Deep Learning**: Building and using advanced models for various tasks like classification and prediction.
+- **B. Computer Vision**: Analyzing images and videos using AI techniques like object detection and image segmentation.
+- **C. Generative AI**: Creating new content with models like GANs, LLMs, and diffusion models.
+- **D. Automated ML Pipelines**: Setting up efficient systems to train, test, and deploy ML models.
+- **E. 3D AI for Architecture**: Using AI to generate and improve building designs and spaces.
+- **F. Smart Cities**: Applying AI to make urban areas more efficient and livable.
+- **G. Data Engineering**: Building systems to handle and analyze large amounts of data, including containerization with Docker and orchestration with Kubernetes.
+- **H. Cloud Services**: Using platforms like AWS and Google Cloud to run AI solutions at scale.
 """)
-
 
 st.sidebar.markdown("### 4. Project Links and Descriptions")
 st.sidebar.markdown("""
