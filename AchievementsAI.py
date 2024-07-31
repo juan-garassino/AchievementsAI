@@ -1,9 +1,14 @@
 import os
-
-# Replace sqlite3 with pysqlite3 if on Streamlit Cloud
-__import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# Check if running on Streamlit Cloud
+if os.getenv('MY_APP_ENV') == 'streamlit_cloud':
+    print("Running on Streamlit Cloud")
+    # Replace sqlite3 with pysqlite3
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+else:
+    print("Not running on Streamlit Cloud")
 
 import chromadb
 import streamlit as st
