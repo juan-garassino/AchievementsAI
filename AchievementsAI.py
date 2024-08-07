@@ -33,7 +33,7 @@ from langchain_community.chat_message_histories import StreamlitChatMessageHisto
 from llama_index.core.prompts import PromptTemplate
 
 # Configuration
-CHROMA_DB_PATH = "./chroma_db/database"
+CHROMA_DB_PATH = "./chroma_db"
 COLLECTION_NAME = "achievementsAI"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOCUMENTS_PATH = os.path.join(ROOT, "data")
