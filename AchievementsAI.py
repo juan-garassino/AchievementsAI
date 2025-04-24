@@ -112,7 +112,7 @@ The RAG model has been fine-tuned with information about me and my professional 
 image_path = os.path.join(ROOT, "assets", "robot-assistant.png")
 
 image = Image.open(image_path)  # Replace with the path to your image
-st.sidebar.image(image, use_column_width=True)
+st.sidebar.image(image, use_container_width=True)
 
 st.sidebar.markdown("### 1. Key Features")
 st.sidebar.markdown(
