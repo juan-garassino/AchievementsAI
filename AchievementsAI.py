@@ -175,11 +175,14 @@ graph_index = PropertyGraphIndex.from_existing(
     embed_model=embeddings,
 )
 
+
 # Pinecone Vector Index
 vector_store = PineconeVectorStore(
     index_name="achievementsai",
     namespace="achievementsai",
+    api_key=PINECONE_KEY
 )
+
 vector_index = VectorStoreIndex.from_vector_store(vector_store)
 
 # Function for sending email
