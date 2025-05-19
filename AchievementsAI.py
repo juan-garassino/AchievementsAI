@@ -105,16 +105,17 @@ st.markdown(
 """, unsafe_allow_html=True)
 
 # ----- Environment & Secrets Configuration -----
+
 # Load credentials from environment variables or Streamlit secrets
-AZ_API_KEY = os.getenv("AZURE_OPENAI_APIKEY") or st.secrets.get("AZURE_OPENAI_API_KEY", {}).get("AZURE_OPENAI_API_KEY")
-AZ_LLM_EP = os.getenv("AZURE_OPENAI_ENDPOINT_LLM") or st.secrets.get("AZURE_OPENAI_ENDPOINT_LLM", {}).get("AZURE_OPENAI_ENDPOINT_LLM")
-AZ_EMB_EP = os.getenv("AZURE_OPENAI_ENDPOINT_EMBEDDING") or st.secrets.get("AZURE_OPENAI_ENDPOINT_EMBEDDING", {}).get("AZURE_OPENAI_ENDPOINT_EMBEDDING")
-AZ_API_VER = os.getenv("AZURE_OPENAI_API_VERSION") or st.secrets.get("AZURE_OPENAI_API_VERSION", {}).get("AZURE_OPENAI_API_VERSION")
-PINECONE_KEY = os.getenv("PINECONE_API_KEY") or st.secrets.get("PINECONE_API_KEY", {}).get("PINECONE_API_KEY")
-NEO4J_USERNAME = os.getenv("NEO4J_USERNAME") or st.secrets.get("NEO4J_USERNAME", {}).get("NEO4J_USERNAME")
-NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD") or st.secrets.get("NEO4J_PASSWORD", {}).get("NEO4J_PASSWORD")
-NEO4J_URI = os.getenv("NEO4J_CONNECTION_URI") or st.secrets.get("NEO4J_CONNECTION_URI", {}).get("NEO4J_CONNECTION_URI")
-GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD") or st.secrets.get("GMAIL_APP_PASSWORD", {}).get("GMAIL_APP_PASSWORD")
+AZ_API_KEY = os.getenv("AZURE_OPENAI_APIKEY") or st.secrets["AZURE_OPENAI"]["AZURE_OPENAI_APIKEY"]
+AZ_LLM_EP = os.getenv("AZURE_OPENAI_ENDPOINT_LLM") or st.secrets["AZURE_OPENAI"]["AZURE_OPENAI_ENDPOINT_LLM"]
+AZ_EMB_EP = os.getenv("AZURE_OPENAI_ENDPOINT_EMBEDDING") or st.secrets["AZURE_OPENAI"]["AZURE_OPENAI_ENDPOINT_EMBEDDING"]
+AZ_API_VER = os.getenv("AZURE_OPENAI_API_VERSION") or st.secrets["AZURE_OPENAI"]["AZURE_OPENAI_API_VERSION"]
+PINECONE_KEY = os.getenv("PINECONE_API_KEY") or st.secrets["API_KEYS"]["PINECONE_API_KEY"]
+NEO4J_USERNAME = os.getenv("NEO4J_USERNAME") or st.secrets["NEO4J"]["NEO4J_USERNAME"]
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD") or st.secrets["NEO4J"]["NEO4J_PASSWORD"]
+NEO4J_URI = os.getenv("NEO4J_CONNECTION_URI") or st.secrets["NEO4J"]["NEO4J_CONNECTION_URI"]
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD") or st.secrets["GMAIL_APP_PASSWORD"]
 
 print("AZ_API_KEY", AZ_API_KEY[0:5])
 print("AZ_LLM_EP", AZ_LLM_EP[0:5])
