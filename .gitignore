@@ -2,3 +2,4 @@
 chroma_db/
 achievements_ai_graphrag/
 notebooks/
+.streamlit/
