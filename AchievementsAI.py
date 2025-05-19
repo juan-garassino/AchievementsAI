@@ -127,6 +127,7 @@ nest_asyncio.apply()
 AZ_API_KEY = os.getenv("AZURE_OPENAI_APIKEY")
 AZ_LLM_EP = os.getenv("AZURE_OPENAI_ENDPOINT_LLM")
 AZ_EMB_EP = os.getenv("AZURE_OPENAI_ENDPOINT_EMBEDDING")
+AZ_EMB_EP = "https://artsquaredhub.openai.azure.com/openai/deployments/text-embedding-3-large/embeddings?api-version=2023-05-15"
 AZ_API_VER = os.getenv("AZURE_OPENAI_API_VERSION")
 PINECONE_KEY = os.getenv("PINECONE_API_KEY")
 
