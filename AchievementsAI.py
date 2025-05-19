@@ -116,15 +116,15 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD") or st.secrets.get("NEO4J_PASSWORD",
 NEO4J_URI = os.getenv("NEO4J_CONNECTION_URI") or st.secrets.get("NEO4J_CONNECTION_URI", {}).get("NEO4J_CONNECTION_URI")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD") or st.secrets.get("GMAIL_APP_PASSWORD", {}).get("GMAIL_APP_PASSWORD")
 
-print("AZ_API_KEY", AZ_API_KEY)
-print("AZ_LLM_EP", AZ_LLM_EP)
-print("AZ_EMB_EP", AZ_EMB_EP)
-print("AZ_API_VER", AZ_API_VER)
-print("PINECONE_KEY", PINECONE_KEY)
-print("NEO4J_USERNAME", NEO4J_USERNAME)
-print("NEO4J_PASSWORD", NEO4J_PASSWORD)
-print("NEO4J_URI", NEO4J_URI)
-print("GMAIL_APP_PASSWORD", GMAIL_APP_PASSWORD)
+print("AZ_API_KEY", AZ_API_KEY[0:5])
+print("AZ_LLM_EP", AZ_LLM_EP[0:5])
+print("AZ_EMB_EP", AZ_EMB_EP[0:5])
+print("AZ_API_VER", AZ_API_VER[0:5])
+print("PINECONE_KEY", PINECONE_KEY[0:5])
+print("NEO4J_USERNAME", NEO4J_USERNAME[0:5])
+print("NEO4J_PASSWORD", NEO4J_PASSWORD[0:5])
+print("NEO4J_URI", NEO4J_URI[0:5])
+print("GMAIL_APP_PASSWORD", GMAIL_APP_PASSWORD[0:5])
 
 # ----- Agent Initialization and Tooling -----
 from llama_index.graph_stores.neo4j import Neo4jPropertyGraphStore
