@@ -1,4 +1,3 @@
-
 import os
 import streamlit as st
 from PIL import Image
@@ -105,6 +104,18 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 
+# ----- Environment & Secrets Configuration -----
+# Load credentials from environment variables or Streamlit secrets
+AZ_API_KEY = os.getenv("AZURE_OPENAI_APIKEY") or st.secrets.get("azure_openai", {}).get("api_key")
+AZ_LLM_EP = os.getenv("AZURE_OPENAI_ENDPOINT_LLM") or st.secrets.get("azure_openai", {}).get("endpoint_llm")
+AZ_EMB_EP = os.getenv("AZURE_OPENAI_ENDPOINT_EMBEDDING") or st.secrets.get("azure_openai", {}).get("endpoint_embedding")
+AZ_API_VER = os.getenv("AZURE_OPENAI_API_VERSION") or st.secrets.get("azure_openai", {}).get("api_version")
+PINECONE_KEY = os.getenv("PINECONE_API_KEY") or st.secrets.get("pinecone", {}).get("api_key")
+NEO4J_USERNAME = os.getenv("NEO4J_USERNAME") or st.secrets.get("neo4j", {}).get("username")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD") or st.secrets.get("neo4j", {}).get("password")
+NEO4J_URI = os.getenv("NEO4J_CONNECTION_URI") or st.secrets.get("neo4j", {}).get("connection_uri")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD") or st.secrets.get("gmail", {}).get("app_password")
+
 # ----- Agent Initialization and Tooling -----
 from llama_index.graph_stores.neo4j import Neo4jPropertyGraphStore
 from llama_index.core import PropertyGraphIndex, Settings
@@ -122,14 +133,6 @@ from email.mime.multipart import MIMEMultipart
 
 # Apply asyncio patch for Jupyter compatibility
 nest_asyncio.apply()
-
-# Load environment variables
-AZ_API_KEY = os.getenv("AZURE_OPENAI_APIKEY")
-AZ_LLM_EP = os.getenv("AZURE_OPENAI_ENDPOINT_LLM")
-AZ_EMB_EP = os.getenv("AZURE_OPENAI_ENDPOINT_EMBEDDING")
-AZ_EMB_EP = "https://artsquaredhub.openai.azure.com/openai/deployments/text-embedding-3-large/embeddings?api-version=2023-05-15"
-AZ_API_VER = os.getenv("AZURE_OPENAI_API_VERSION")
-PINECONE_KEY = os.getenv("PINECONE_API_KEY")
 
 # Initialize LLM and Embeddings
 llm = AzureOpenAI(
@@ -151,9 +154,9 @@ Settings.embed_model = embeddings
 
 # Neo4j Graph Index
 neo4j_store = Neo4jPropertyGraphStore(
-    username=os.getenv("NEO4J_USERNAME"),
-    password=os.getenv("NEO4J_PASSWORD"),
-    url=os.getenv("NEO4J_CONNECTION_URI"),
+    username=NEO4J_USERNAME,
+    password=NEO4J_PASSWORD,
+    url=NEO4J_URI,
 )
 graph_index = PropertyGraphIndex.from_existing(
     property_graph_store=neo4j_store,
@@ -169,9 +172,10 @@ vector_store = PineconeVectorStore(
 vector_index = VectorStoreIndex.from_vector_store(vector_store)
 
 # Function for sending email
+
 def send_gmail(to_email: str, subject: str, message: str) -> str:
     sender = "achievements.ai.backend@gmail.com"
-    app_pass = os.getenv("GMAIL_APP_PASSWORD") or "wtnh nvca ghrc iige"
+    app_pass = GMAIL_APP_PASSWORD
     msg = MIMEMultipart()
     msg['From'] = sender
     msg['To'] = to_email
