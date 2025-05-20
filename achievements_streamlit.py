@@ -299,7 +299,7 @@ if st.session_state.button_pressed:
     st.session_state.messages.append({"role": "user", "content": st.session_state.last_question})
     with st.chat_message("assistant"):
         response = agent.chat(st.session_state.last_question)
-        st.write(response)
+        st.write(response.response)
     st.session_state.messages.append({"role": "assistant", "content": response})
     st.session_state.button_pressed = False
     st.session_state.last_question = ""
@@ -309,5 +309,5 @@ if prompt := st.chat_input("Ask me about Juan…"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("assistant"):
         response = agent.chat(prompt)
-        st.write(response)
+        st.write(response.response)
     st.session_state.messages.append({"role": "assistant", "content": response})
